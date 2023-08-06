@@ -2,7 +2,7 @@
 #Title........: airgeddon.sh
 #Description..: This is a multi-use bash script for Linux systems to audit wireless networks.
 #Author.......: v1s1t0r
-#Version......: 11.20
+#Version......: 11.21
 #Usage........: bash airgeddon.sh
 #Bash Version.: 4.2 or later
 
@@ -71,6 +71,7 @@ optional_tools_names=(
 						"hcxpcapngtool"
 						"hcxdumptool"
 						"tshark"
+						"tcpdump"
 					)
 
 update_tools=("curl")
@@ -122,6 +123,7 @@ declare -A possible_package_names=(
 									[${optional_tools_names[23]}]="hcxtools" #hcxpcapngtool
 									[${optional_tools_names[24]}]="hcxdumptool" #hcxdumptool
 									[${optional_tools_names[25]}]="tshark / wireshark-cli / wireshark" #tshark
+									[${optional_tools_names[26]}]="tcpdump" #tcpdump
 									[${update_tools[0]}]="curl" #curl
 								)
 
@@ -131,8 +133,8 @@ declare -A possible_alias_names=(
 								)
 
 #General vars
-airgeddon_version="11.20"
-language_strings_expected_version="11.20-1"
+airgeddon_version="11.21"
+language_strings_expected_version="11.21-1"
 standardhandshake_filename="handshake-01.cap"
 standardpmkid_filename="pmkid_hash.txt"
 standardpmkidcap_filename="pmkid.cap"
@@ -153,6 +155,7 @@ alternative_rc_file_name="airgeddonrc"
 language_strings_file="language_strings.sh"
 broadcast_mac="FF:FF:FF:FF:FF:FF"
 minimum_hcxdumptool_filterap_version="6.0.0"
+minimum_hcxdumptool_bpf_version="6.3.0"
 
 #5Ghz vars
 ghz="Ghz"
@@ -229,6 +232,7 @@ urlscript_pins_dbfile_checksum="https://raw.githubusercontent.com/${github_user}
 urlscript_language_strings_file="https://raw.githubusercontent.com/${github_user}/${github_repository}/${branch}/${language_strings_file}"
 urlscript_options_config_file="https://raw.githubusercontent.com/${github_user}/${github_repository}/${branch}/${rc_file_name}"
 urlgithub_wiki="https://${repository_hostname}/${github_user}/${github_repository}/wiki"
+urlmerchandising_shop="https://airgeddon.creator-spring.com/"
 mail="v1s1t0r.1s.h3r3@gmail.com"
 author="v1s1t0r"
 
@@ -10112,7 +10116,7 @@ function set_wps_attack_script() {
 						password_cracked_regexp="^\[\+\][[:space:]]WPA[[:space:]]PSK:[[:space:]]'(.*)'"
 					;;
 					"pixiedust")
-						success_attack_goodpixie_pin_regexp="^\[Pixie\-Dust\][[:space:]]*\[\+\][[:space:]]*WPS[[:space:]]pin:.*([0-9]{8})"
+						success_attack_goodpixie_pin_regexp="^(\[Pixie\-Dust\]|\[\+\])[[:space:]]*(\[\+\][[:space:]]*WPS|WPS)[[:space:]](pin|PIN):.*([0-9]{8})"
 						success_attack_goodpixie_password_regexp=".*?\[\+\][[:space:]]WPA[[:space:]]PSK:[[:space:]]'(.*)'"
 					;;
 				esac
@@ -10124,7 +10128,7 @@ function set_wps_attack_script() {
 						success_attack_goodpin_regexp="^\[\*\][[:space:]]Pin[[:space:]]is[[:space:]]'([0-9]{8})',[[:space:]]key[[:space:]]is[[:space:]]'(.*)'"
 					;;
 					"pixiedust")
-						success_attack_goodpixie_pin_regexp="^\[Pixie\-Dust\][[:space:]]PIN[[:space:]]FOUND:[[:space:]]([0-9]{8})"
+						success_attack_goodpixie_pin_regexp="^(\[Pixie\-Dust\])[[:space:]](PIN|pin|Pin)[[:space:]](FOUND:)[[:space:]]([0-9]{8})"
 						success_attack_goodpixie_password_regexp="^\[\*\][[:space:]]Pin[[:space:]]is[[:space:]]'[0-9]{8}',[[:space:]]key[[:space:]]is[[:space:]]'(.*)'"
 					;;
 				esac
@@ -10166,7 +10170,7 @@ function set_wps_attack_script() {
 				"pixiedust")
 					for item in "${LINES_TO_PARSE[@]}"; do
 						if [[ ${item} =~ ${success_attack_goodpixie_pin_regexp} ]]; then
-							cracked_pin="${BASH_REMATCH[1]}"
+							cracked_pin="${BASH_REMATCH[4]}"
 							pin_cracked=1
 							continue
 						elif [[ ${item} =~ ${success_attack_goodpixie_password_regexp} ]]; then
@@ -12101,7 +12105,20 @@ function handshake_pmkid_tools_menu() {
 			if contains_element "${handshake_option}" "${forbidden_options[@]}"; then
 				forbidden_menu_option
 			else
-				capture_pmkid_handshake "pmkid"
+				get_hcxdumptool_version
+				if compare_floats_greater_or_equal "${hcxdumptool_version}" "${minimum_hcxdumptool_bpf_version}"; then
+					if hash tcpdump 2> /dev/null; then
+						echo
+						language_strings "${language}" 716 "yellow"
+						capture_pmkid_handshake "pmkid"
+					else
+						echo
+						language_strings "${language}" 715 "red"
+						language_strings "${language}" 115 "read"
+					fi
+				else
+					capture_pmkid_handshake "pmkid"
+				fi
 			fi
 		;;
 		6)
@@ -12376,13 +12393,13 @@ function capture_pmkid_handshake() {
 		return 1
 	fi
 
+	echo
 	language_strings "${language}" 126 "yellow"
 	language_strings "${language}" 115 "read"
 
 	if [ "${1}" = "handshake" ]; then
 		dos_handshake_menu
 	else
-		get_hcxdumptool_version
 		launch_pmkid_capture
 	fi
 }
@@ -12973,8 +12990,6 @@ function launch_pmkid_capture() {
 	debug_print
 
 	ask_timeout "capture_pmkid"
-	rm -rf "${tmpdir}target.txt" > /dev/null 2>&1
-	echo "${bssid//:}" > "${tmpdir}target.txt"
 
 	echo
 	language_strings "${language}" 671 "yellow"
@@ -12982,16 +12997,32 @@ function launch_pmkid_capture() {
 	echo
 	language_strings "${language}" 325 "blue"
 
-	if compare_floats_greater_or_equal "${hcxdumptool_version}" "${minimum_hcxdumptool_filterap_version}"; then
-		hcxdumptool_filter="--filterlist_ap="
+	rm -rf "${tmpdir}pmkid"* > /dev/null 2>&1
+
+	if compare_floats_greater_or_equal "${hcxdumptool_version}" "${minimum_hcxdumptool_bpf_version}"; then
+
+		tcpdump -i "${interface}" wlan addr3 "${bssid}" -ddd > "${tmpdir}pmkid.bpf"
+
+		if [ "${interfaces_band_info['main_wifi_interface','5Ghz_allowed']}" -eq 0 ]; then
+			hcxdumptool_band_modifier="b"
+		else
+			hcxdumptool_band_modifier="a"
+		fi
+
+		hcxdumptool_parameters="-c ${channel}${hcxdumptool_band_modifier} -F --rds=1 --bpf=${tmpdir}pmkid.bpf -w ${tmpdir}pmkid.pcapng"
+	elif compare_floats_greater_or_equal "${hcxdumptool_version}" "${minimum_hcxdumptool_filterap_version}"; then
+		rm -rf "${tmpdir}target.txt" > /dev/null 2>&1
+		echo "${bssid//:}" > "${tmpdir}target.txt"
+		hcxdumptool_parameters="--enable_status=1 --filterlist_ap=${tmpdir}target.txt --filtermode=2 -o ${tmpdir}pmkid.pcapng"
 	else
-		hcxdumptool_filter="--filterlist="
+		rm -rf "${tmpdir}target.txt" > /dev/null 2>&1
+		echo "${bssid//:}" > "${tmpdir}target.txt"
+		hcxdumptool_parameters="--enable_status=1 --filterlist=${tmpdir}target.txt --filtermode=2 -o ${tmpdir}pmkid.pcapng"
 	fi
 
-	rm -rf "${tmpdir}pmkid"* > /dev/null 2>&1
 	recalculate_windows_sizes
-	manage_output "+j -sb -rightbar -bg \"#000000\" -fg \"#FFC0CB\" -geometry ${g1_topright_window} -T \"Capturing PMKID\"" "timeout -s SIGTERM ${timeout_capture_pmkid} hcxdumptool -i ${interface} --enable_status=1 ${hcxdumptool_filter}${tmpdir}target.txt --filtermode=2 -o ${tmpdir}pmkid.pcapng" "Capturing PMKID" "active"
-	wait_for_process "timeout -s SIGTERM ${timeout_capture_pmkid} hcxdumptool -i ${interface} --enable_status=1 ${hcxdumptool_filter}${tmpdir}target.txt --filtermode=2 -o ${tmpdir}pmkid.pcapng" "Capturing PMKID"
+	manage_output "+j -sb -rightbar -bg \"#000000\" -fg \"#FFC0CB\" -geometry ${g1_topright_window} -T \"Capturing PMKID\"" "timeout -s SIGTERM ${timeout_capture_pmkid} hcxdumptool -i ${interface} ${hcxdumptool_parameters}" "Capturing PMKID" "active"
+	wait_for_process "timeout -s SIGTERM ${timeout_capture_pmkid} hcxdumptool -i ${interface} ${hcxdumptool_parameters}" "Capturing PMKID"
 
 	if hcxpcapngtool -o "${tmpdir}${standardpmkid_filename}" "${tmpdir}pmkid.pcapng" | grep -Eq "PMKID(\(s\))? written" 2> /dev/null; then
 		pmkidpath="${default_save_path}"

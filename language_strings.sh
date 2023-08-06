@@ -10,7 +10,7 @@ function set_language_strings_version() {
 
 	debug_print
 
-	language_strings_version="11.20-1"
+	language_strings_version="11.21-1"
 }
 
 #Set different language text strings
@@ -709,7 +709,7 @@ function initialize_language_strings() {
 	jtr_texts["POLISH",1]="airgeddon. Hasło odszyfrowane z użyciem john the ripper"
 	jtr_texts["GERMAN",1]="airgeddon. Passwort mit john the ripper entschlüsselt"
 	jtr_texts["TURKISH",1]="airgeddon. John the ripper kullanarak şifreyi çözdü"
-	jtr_texts["ARABIC",1]=".john the ripper فك تشفير كلمة السر باستخدام.airgeddon"
+	jtr_texts["ARABIC",1]="john the ripper فك تشفير كلمة السر باستخدام .airgeddon"
 
 	jtr_texts["ENGLISH",2]="Enterprise user"
 	jtr_texts["SPANISH",2]="Usuario enterprise"
@@ -1454,7 +1454,7 @@ function initialize_language_strings() {
 	arr["ITALIAN",37]="Attacco Confusion / WIDS / WIPS / WDS scelto (modalità monitor richiesta)"
 	arr["POLISH",37]="Wybrano ataki typu WIDS / WIPS / WDS Confusion (wymagany tryb monitorowania)"
 	arr["GERMAN",37]="Confusion WIDS / WIPS / WDS Angriff ausgewählt (Monitor-Modus erforderlich)"
-	arr["ENGLISH",37]="WIDS / WIPS / WDS Confusion saldırısı seçildi (izleme modu gereklidir)"
+	arr["TURKISH",37]="WIDS / WIPS / WDS Confusion saldırısı seçildi (izleme modu gereklidir)"
 	arr["ARABIC",37]="(monitor mode يلزم وضع) WIDS / WIPS / WDS Confusion تم اختيار هجوم"
 
 	arr["ENGLISH",38]="Beacon flood attack chosen (monitor mode needed)"
@@ -10219,18 +10219,18 @@ function initialize_language_strings() {
 	arr["TURKISH",711]="Esir portalın daha özel bir saldırı için özelleştirilebileceğini unutmayın. Bunun nasıl yapılacağıyla ilgili bilgileri Wiki'den kontrol edin: \${normal_color}\${urlgithub_wiki}/FAQ%20&%20Troubleshooting#can-the-evil-twin-captive-portal-page-be-customized-if-so-how"
 	arr["ARABIC",711]="\${normal_color}\${urlgithub_wiki}/FAQ%20&%20Troubleshooting#can-the-evil-twin-captive-portal-page-be-customized-if-so-how \${blue_color}:تذكر أنه يمكن أيضًا تخصيص البوابة المقيدة لهجوم أكثر تفصيلاً. تحقق من المعلومات حول كيفية القيام بذلك على \${normal_color}"
 
-	arr["ENGLISH",712]="Another way to contribute to the project is buying some merchandising (mugs, T-shirts, etc.). A little portion of each payment (after deducting material, printing and shipping) will be to support the project. Check the merchandising online shop at: \${normal_color}https://airgeddon.creator-spring.com/"
-	arr["SPANISH",712]="Otra forma de contribuir al proyecto es comprando algún producto de merchandising (tazas, camisetas, etc.). Una pequeña parte de cada pago (después de deducir el material, la impresión y el envío) será para apoyar el proyecto. Consulta la tienda online de merchandising en: \${normal_color}https://airgeddon.creator-spring.com/"
-	arr["FRENCH",712]="Une autre façon de contribuer au projet c'est d'acheter du merchandising (mugs, T-shirts, etc.). Une petite partie de chaque paiement (après déduction du matériel, de l'impression et de l'expédition) servira à soutenir le projet. Consultez la boutique en ligne de merchandising à: \${normal_color}https://airgeddon.creator-spring.com/"
-	arr["CATALAN",712]="Una altra manera de contribuir al projecte és comprar algun marxandatge (tasses, samarretes, etc.). Una petita part de cada pagament (després de deduir el material, la impressió i l'enviament) servirà per donar suport al projecte. Consulteu la botiga online de marxandatge a: \${normal_color}https://airgeddon.creator-spring.com/"
-	arr["PORTUGUESE",712]="Outra forma de contribuir com o projeto é comprando algum produto (canecas, camisetas, etc.). Uma pequena parte de cada pagamento (depois de descontar material, impressão e envio) será para apoiar o projeto. Confira a loja online em: \${normal_color}https://airgeddon.creator-spring.com/"
-	arr["RUSSIAN",712]="Еще один способ внести свой вклад в проект - купить наш мерч (кружки, футболки и т.п.)! Часть каждого платежа (после вычета материалов, печати и доставки) пойдет на поддержку проекта. Посмотреть мерч можно в интернет-магазине по ссылке: \${normal_color}https://airgeddon.creator-spring.com/"
-	arr["GREEK",712]="Ένας άλλος τρόπος για να συνεισφέρετε στο έργο είναι να αγοράσετε κάποιο merchandising (κούπες, μπλουζάκια κ.λπ.). Ένα μικρό μέρος κάθε πληρωμής (μετά την αφαίρεση υλικού, εκτύπωσης και αποστολής) θα είναι για την υποστήριξη του έργου. Ελέγξτε το ηλεκτρονικό κατάστημα merchandising στη διεύθυνση: \${normal_color}https://airgeddon.creator-spring.com/"
-	arr["ITALIAN",712]="Un altro modo per contribuire al progetto è acquistare del merchandising (tazze, magliette, ecc.). Una piccola parte di ogni pagamento (dopo aver dedotto il materiale, la stampa e la spedizione) andrà a sostenere il progetto. Guarda il negozio online di merchandising su: \${normal_color}https://airgeddon.creator-spring.com/"
-	arr["POLISH",712]="Innym sposobem wniesienia wkładu w projekt jest zakup gadżetów (kubki, koszulki itp.). Niewielka część każdej płatności (po odliczeniu materiałów, druku i wysyłki) zostanie przeznaczona na wsparcie projektu. Sprawdź sklep internetowy z gadżetami pod adresem: \${normal_color}https://airgeddon.creator-spring.com/"
-	arr["GERMAN",712]="Eine weitere Möglichkeit, zum Projekt beizutragen, ist der Kauf von Merchandising (Tassen, T-Shirts usw.). Ein kleiner Teil jeder Zahlung (nach Abzug von Material, Druck und Versand) dient der Unterstützung des Projekts. Besuchen Sie den Merchandising-Online-Shop unter: \${normal_color}https://airgeddon.creator-spring.com/"
-	arr["TURKISH",712]="Projeye katkıda bulunmanın bir başka yolu da bazı ticari mallar (kupalar, tişörtler vb.) satın almaktır. Her ödemenin küçük bir kısmı (malzeme, baskı ve nakliye düşüldükten sonra) projeyi desteklemek içindir. Çevrimiçi satış mağazasını kontrol edin: \${normal_color}https://airgeddon.creator-spring.com/"
-	arr["ARABIC",712]="\${normal_color}https://airgeddon.creator-spring.com/ \${pink_color}:هناك طريقة أخرى للمساهمة في المشروع وهي شراء بعض البضائع (أكواب ، قمصان ، إلخ). جزء بسيط من كل دفعة (بعد خصم المواد والطباعة والشحن) سيكون لدعم المشروع. تحقق من متجر التجارة عبر الإنترنت على\${normal_color}"
+	arr["ENGLISH",712]="Another way to contribute to the project is buying some merchandising (mugs, T-shirts, etc.). A little portion of each payment (after deducting material, printing and shipping) will be to support the project. Check the merchandising online shop at: \${normal_color}\${urlmerchandising_shop}"
+	arr["SPANISH",712]="Otra forma de contribuir al proyecto es comprando algún producto de merchandising (tazas, camisetas, etc.). Una pequeña parte de cada pago (después de deducir el material, la impresión y el envío) será para apoyar el proyecto. Consulta la tienda online de merchandising en: \${normal_color}\${urlmerchandising_shop}"
+	arr["FRENCH",712]="Une autre façon de contribuer au projet c'est d'acheter du merchandising (mugs, T-shirts, etc.). Une petite partie de chaque paiement (après déduction du matériel, de l'impression et de l'expédition) servira à soutenir le projet. Consultez la boutique en ligne de merchandising à: \${normal_color}\${urlmerchandising_shop}"
+	arr["CATALAN",712]="Una altra manera de contribuir al projecte és comprar algun marxandatge (tasses, samarretes, etc.). Una petita part de cada pagament (després de deduir el material, la impressió i l'enviament) servirà per donar suport al projecte. Consulteu la botiga online de marxandatge a: \${normal_color}\${urlmerchandising_shop}"
+	arr["PORTUGUESE",712]="Outra forma de contribuir com o projeto é comprando algum produto (canecas, camisetas, etc.). Uma pequena parte de cada pagamento (depois de descontar material, impressão e envio) será para apoiar o projeto. Confira a loja online em: \${normal_color}\${urlmerchandising_shop}"
+	arr["RUSSIAN",712]="Еще один способ внести свой вклад в проект - купить наш мерч (кружки, футболки и т.п.)! Часть каждого платежа (после вычета материалов, печати и доставки) пойдет на поддержку проекта. Посмотреть мерч можно в интернет-магазине по ссылке: \${normal_color}\${urlmerchandising_shop}"
+	arr["GREEK",712]="Ένας άλλος τρόπος για να συνεισφέρετε στο έργο είναι να αγοράσετε κάποιο merchandising (κούπες, μπλουζάκια κ.λπ.). Ένα μικρό μέρος κάθε πληρωμής (μετά την αφαίρεση υλικού, εκτύπωσης και αποστολής) θα είναι για την υποστήριξη του έργου. Ελέγξτε το ηλεκτρονικό κατάστημα merchandising στη διεύθυνση: \${normal_color}\${urlmerchandising_shop}"
+	arr["ITALIAN",712]="Un altro modo per contribuire al progetto è acquistare del merchandising (tazze, magliette, ecc.). Una piccola parte di ogni pagamento (dopo aver dedotto il materiale, la stampa e la spedizione) andrà a sostenere il progetto. Guarda il negozio online di merchandising su: \${normal_color}\${urlmerchandising_shop}"
+	arr["POLISH",712]="Innym sposobem wniesienia wkładu w projekt jest zakup gadżetów (kubki, koszulki itp.). Niewielka część każdej płatności (po odliczeniu materiałów, druku i wysyłki) zostanie przeznaczona na wsparcie projektu. Sprawdź sklep internetowy z gadżetami pod adresem: \${normal_color}\${urlmerchandising_shop}"
+	arr["GERMAN",712]="Eine weitere Möglichkeit, zum Projekt beizutragen, ist der Kauf von Merchandising (Tassen, T-Shirts usw.). Ein kleiner Teil jeder Zahlung (nach Abzug von Material, Druck und Versand) dient der Unterstützung des Projekts. Besuchen Sie den Merchandising-Online-Shop unter: \${normal_color}\${urlmerchandising_shop}"
+	arr["TURKISH",712]="Projeye katkıda bulunmanın bir başka yolu da bazı ticari mallar (kupalar, tişörtler vb.) satın almaktır. Her ödemenin küçük bir kısmı (malzeme, baskı ve nakliye düşüldükten sonra) projeyi desteklemek içindir. Çevrimiçi satış mağazasını kontrol edin: \${normal_color}\${urlmerchandising_shop}"
+	arr["ARABIC",712]="\${normal_color}\${urlmerchandising_shop} \${pink_color}:هناك طريقة أخرى للمساهمة في المشروع وهي شراء بعض البضائع (أكواب ، قمصان ، إلخ). جزء بسيط من كل دفعة (بعد خصم المواد والطباعة والشحن) سيكون لدعم المشروع. تحقق من متجر التجارة عبر الإنترنت على\${normal_color}"
 
 	arr["ENGLISH",713]="Target AP's BSSID was detected as \"\${normal_color}\${routervendor}\${blue_color}\" vendor"
 	arr["SPANISH",713]="El BSSID del AP objetivo se detectó como proveedor \"\${normal_color}\${routervendor}\${blue_color}\""
@@ -10257,6 +10257,32 @@ function initialize_language_strings() {
 	arr["GERMAN",714]="Für die BSSID des Ziel-AP wurde kein Anbieter erkannt. Die standardmäßige Captive-Portal-Vorlage wird verwendet"
 	arr["TURKISH",714]="Hedef AP'nin BSSID'si için satıcı bulunamadı. Varsayılan sabit portal şablonu kullanılacak"
 	arr["ARABIC",714]="لنقطة الوصول المستهدفة. سيتم استخدام قالب البوابة المقيدة الافتراضي BSSID لم يتم اكتشاف أي مورد لـ"
+
+	arr["ENGLISH",715]="Error. Your hcxdumptool version is (v\${hcxdumptool_version}) and from version \${minimum_hcxdumptool_bpf_version}, capturing a PMKID additionally requires the tcpdump tool which is currently not installed on your system. Install it and try this attack again by relaunching airgeddon"
+	arr["SPANISH",715]="Error. Tu versión de hcxdumptool es (v\${hcxdumptool_version}) y a partir de la versión \${minimum_hcxdumptool_bpf_version}, para capturar un PMKID además se necesita la herramienta tcpdump que actualmente no se encuentra en tu sistema. Instálala y vuelve a intentar este ataque relanzando airgeddon"
+	arr["FRENCH",715]="\${pending_of_translation} Erreur. Votre version de hcxdumptool est (v\${hcxdumptool_version}) et à partir de la version \${minimum_hcxdumptool_bpf_version}, la capture d'un PMKID nécessite en outre l'outil tcpdump qui n'est actuellement pas sur votre système. Installez-le et retentez cette attaque en relançant airgeddon"
+	arr["CATALAN",715]="\${pending_of_translation} Error. La teva versió de hcxdumptool és (v\${hcxdumptool_version}) ia partir de la versió \${minimum_hcxdumptool_bpf_version}, per capturar un PMKID a més es necessita l'eina tcpdump que actualment no es troba al sistema. Instal·la-la i torna a intentar aquest atac rellançant airgeddon"
+	arr["PORTUGUESE",715]="\${pending_of_translation} Erro. Sua versão hcxdumptool é (v\${hcxdumptool_version}) e a partir da versão \${minimum_hcxdumptool_bpf_version}, a captura de um PMKID requer adicionalmente a ferramenta tcpdump que não está atualmente em seu sistema. Instale-o e tente este ataque novamente reiniciando o airgeddon"
+	arr["RUSSIAN",715]="\${pending_of_translation} Ошибка. Ваша версия hcxdumptool (v\${hcxdumptool_version}) и, начиная с версии \${minimum_hcxdumptool_bpf_version}, для захвата PMKID дополнительно требуется инструмент tcpdump, которого в настоящее время нет в вашей системе. Установите его и повторите эту атаку, перезапустив airgeddon."
+	arr["GREEK",715]="\${pending_of_translation} Λάθος. Η έκδοσή σας hcxdumptool είναι (v\${hcxdumptool_version}) και από την έκδοση \${minimum_hcxdumptool_bpf_version}, η λήψη ενός PMKID απαιτεί επιπλέον το εργαλείο tcpdump το οποίο δεν υπάρχει αυτήν τη στιγμή στο σύστημά σας. Εγκαταστήστε το και δοκιμάστε ξανά αυτήν την επίθεση επανεκκινώντας το airgeddon"
+	arr["ITALIAN",715]="\${pending_of_translation} Errore. La tua versione di hcxdumptool è (v\${hcxdumptool_version}) e a partire dalla versione \${minimum_hcxdumptool_bpf_version}, l'acquisizione di un PMKID richiede anche lo strumento tcpdump che attualmente non è sul tuo sistema. Installalo e riprova questo attacco rilanciando airgeddon"
+	arr["POLISH",715]="\${pending_of_translation} Błąd. Twoja wersja hcxdumptool to (v\${hcxdumptool_version}), a od wersji \${minimum_hcxdumptool_bpf_version} przechwytywanie PMKID dodatkowo wymaga narzędzia tcpdump, którego obecnie nie ma w twoim systemie. Zainstaluj go i spróbuj ponownie tego ataku, ponownie uruchamiając airgeddon"
+	arr["GERMAN",715]="\${pending_of_translation} Fehler. Ihre hcxdumptool-Version ist (v\${hcxdumptool_version}) und ab Version \${minimum_hcxdumptool_bpf_version} ist zum Erfassen eines PMKID zusätzlich das Tool tcpdump erforderlich, das sich derzeit nicht auf Ihrem System befindet. Installieren Sie es und versuchen Sie diesen Angriff erneut, indem Sie airgeddon neu starten"
+	arr["TURKISH",715]="\${pending_of_translation} Hata. hcxdumptool sürümünüz (v\${hcxdumptool_version})'dir ve \${minimum_hcxdumptool_bpf_version} sürümünden itibaren, bir PMKID'yi yakalamak ek olarak şu anda sisteminizde olmayan tcpdump aracını gerektirir. Yükleyin ve airgeddon'u yeniden başlatarak bu saldırıyı tekrar deneyin"
+	arr["ARABIC",715]="\${pending_of_translation} خطأ. إصدار hcxdumptool الخاص بك هو (v\${hcxdumptool_version} *) واعتبارًا من الإصدار \${minimum_hcxdumptool_bpf_version} ، يتطلب التقاط PMKID أيضًا أداة tcpdump التي ليست موجودة حاليًا على نظامك. قم بتثبيته وحاول هذا الهجوم مرة أخرى عن طريق إعادة تشغيل airgeddon"
+
+	arr["ENGLISH",716]="You have the tcpdump tool installed, therefore your system can perform the PMKID capture attack with versions of hcxdumptool later than 6.3.0 (currently your hcxdumptool version is \${hcxdumptool_version})"
+	arr["SPANISH",716]="Tienes instalada la herramienta tcpdump, por lo que tu sistema puede realizar el ataque de captura PMKID con versiones de hcxdumptool posteriores a la 6.3.0 (actualmente tu versión de hcxdumptool es la \${hcxdumptool_version})"
+	arr["FRENCH",716]="\${pending_of_translation} L'outil tcpdump est installé, votre système peut donc effectuer l'attaque de capture PMKID avec des versions de hcxdumptool ultérieures à 6.3.0 (actuellement, votre version de hcxdumptool est \${hcxdumptool_version})"
+	arr["CATALAN",716]="\${pending_of_translation} Teniu instal·lada l'eina tcpdump, per tant, el vostre sistema pot realitzar l'atac de captura PMKID amb versions d'hcxdumptool posteriors a la 6.3.0 (actualment la vostra versió de hcxdumptool és \${hcxdumptool_version})"
+	arr["PORTUGUESE",716]="\${pending_of_translation} Você tem a ferramenta tcpdump instalada, portanto seu sistema pode executar o ataque de captura PMKID com versões do hcxdumptool posteriores a 6.3.0 (atualmente sua versão do hcxdumptool é \${hcxdumptool_version})"
+	arr["RUSSIAN",716]="\${pending_of_translation} У вас установлен инструмент tcpdump, поэтому ваша система может выполнять атаку захвата PMKID с версиями hcxdumptool более поздними, чем 6.3.0 (в настоящее время ваша версия hcxdumptool — \${hcxdumptool_version})"
+	arr["GREEK",716]="\${pending_of_translation} Έχετε εγκατεστημένο το εργαλείο tcpdump, επομένως το σύστημά σας μπορεί να εκτελέσει την επίθεση καταγραφής PMKID με εκδόσεις του hcxdumptool μεταγενέστερες της 6.3.0 (επί του παρόντος η έκδοση hcxdumptool είναι \${hcxdumptool_version})"
+	arr["ITALIAN",716]="\${pending_of_translation} Hai lo strumento tcpdump installato, quindi il tuo sistema può eseguire l'attacco di cattura PMKID con versioni di hcxdumptool successive alla 6.3.0 (attualmente la tua versione di hcxdumptool è \${hcxdumptool_version})"
+	arr["POLISH",716]="\${pending_of_translation} Masz zainstalowane narzędzie tcpdump, więc twój system może przeprowadzić atak przechwytujący PMKID z wersjami hcxdumptool nowszymi niż 6.3.0 (obecnie twoja wersja hcxdumptool to \${hcxdumptool_version})"
+	arr["GERMAN",716]="\${pending_of_translation} Sie haben das tcpdump-Tool installiert, daher kann Ihr System den PMKID-Capture-Angriff mit Versionen von hcxdumptool nach 6.3.0 durchführen (derzeit ist Ihre hcxdumptool-Version \${hcxdumptool_version})"
+	arr["TURKISH",716]="\${pending_of_translation} tcpdump aracını yüklediniz, bu nedenle sisteminiz 6.3.0'dan sonraki hcxdumptool sürümleriyle PMKID yakalama saldırısını gerçekleştirebilir (şu anda hcxdumptool sürümünüz \${hcxdumptool_version})"
+	arr["ARABIC",716]="\${pending_of_translation} لديك أداة tcpdump مثبتة ، وبالتالي يمكن لنظامك تنفيذ هجوم التقاط PMKID بإصدارات من hcxdumptool أحدث من 6.3.0 (حاليًا إصدار hcxdumptool هو \${hcxdumptool_version})"
 }
 
 #Expand escaped variables in language strings with their actual values
